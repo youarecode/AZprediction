@@ -12,10 +12,13 @@
                 {{ form|crispy }}
                 <button type="submit" class="btn btn-success btn-block">Enviar</button>
             </form>
-            <h3 class="mt-5">Observaciones:</h3>
-            <p>Se espera un texto largo para una mayor capacidad de análisis, mínimo 100 caracteres.</p>
+            <h4 class="mt-4">Obs.</h3>
+                <small class="text-muted">*El estimador sesgado tiene un accuracy del 73%, mientras que el insesgado es de al menos 78%, 
+                    sin embargo el estimador sesgado en caso de duda recomienda al médico pertinente. Por otro lado el estimador insesgado sólo 
+                    le preocupa acertar con el resultado correcto, no las repercuciones que pudiese tener dicho diagóstico</small>
+                <br>
+                <small class="text-muted">**Se recomienda un texto extenso para un análisis más preciso (mínimo 100 caracteres).</small>
 
-            
             
             {% if result %}
                 <hr class="my-4 border-top border-2 border-info">
@@ -24,11 +27,11 @@
                 <div class="mt-3">
                     {% if result.az %}
                         <div class="alert alert-danger" role="alert">
-                            AZ: Problema detectado, posible alzheimer
+                            <strong>Test AZ:</strong> Problema detectado, posible alzheimer
                         </div>
                     {% else %}
                         <div class="alert alert-success" role="alert">
-                            AZ: Todo parece en orden
+                            <strong>Test AZ:</strong> Todo parece en orden
                         </div>
                     {% endif %}
                 </div>
@@ -37,11 +40,11 @@
                 <div class="mt-3">
                     {% if result.FTDbv %}
                         <div class="alert alert-danger" role="alert">
-                            FTDbv: Problema detectado, posible demencia frontotemporal
+                            <strong>Test FTDbv:</strong> Problema detectado, posible demencia frontotemporal
                         </div>
                     {% else %}
                         <div class="alert alert-success" role="alert">
-                            FTDbv: Todo parece en orden
+                        <strong>Test FTDbv:</strong> Todo parece en orden
                         </div>
                     {% endif %}
                 </div>
@@ -51,3 +54,5 @@
         </div>
     </div>
 {% endblock %}
+
+

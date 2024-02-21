@@ -8,6 +8,9 @@ def home(request:HttpRequest):
         form = UX_dementia_prediction(request.POST)
         if form.is_valid():
             data = form.cleaned_data['data']
+            biased = form.cleaned_data['allow_biased']
+            # print(data)
+            # print(biased)
             result = data[50:60]
             result = {'az':False, 'FTDbv':True}
             return render(request, 'dementia_widget.html', {'form':form, 'result':result,})
