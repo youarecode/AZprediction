@@ -6,7 +6,7 @@ class UX_dementia_prediction(forms.Form):
     My machine learning model expects data between 100 to 200 char.
     """
     data=forms.CharField(label='',widget=forms.Textarea, min_length=100, max_length=1000)
-    allow_biased = forms.BooleanField(label='Por favor permita que usemos el estimador sesgado', initial=True)
+    allow_biased = forms.BooleanField(label='Por favor permita que usemos el estimador sesgado', initial=True, required=False)
 
     class Meta:
         # label = ('hola')
